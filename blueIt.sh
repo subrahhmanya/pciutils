@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# pre-build
+sed -i 's/STRIP=-s/STRIP=/' Makefile
+
 # build
 make CROSS_COMPILE=${BLUEOS_TARGET}- HOST=${BLUEOS_TARGET} PREFIX=/usr SHAREDIR=/usr/share/misc MANDIR=/usr/share/man SHARED=yes ZLIB=no all
 
